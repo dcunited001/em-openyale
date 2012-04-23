@@ -10,6 +10,8 @@ require "minitest/pride"
 require "mocha"
 require "pry"
 
+require 'redisk'
+
 YALE_ROOT = File.dirname(__FILE__)
 
 Openyale.configure do |oyc|
