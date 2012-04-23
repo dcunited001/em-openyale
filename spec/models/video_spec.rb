@@ -4,6 +4,9 @@ describe Openyale::Models::Video do
   let(:vid_url) { 'http://openmedia.yale.edu/cgi-bin/open_yale/media_downloader.cgi?file=/courses/fall06/plsc114/mov/chapters/plsc114_01_091106.mov' }
   let(:oyc_path) { '/courses/fall06/plsc114/mov/chapters/plsc114_01_091106.mov' }
   let(:actual_url) { 'http://openmedia.yale.edu/projects/courses/fall06/plsc114/mov/chapters/plsc114_01_091106.mov'}
+  let(:full_file_path) { File.join('~/vids', subject.classname, subject.filename) }
+  let(:curl_command) { "curl -o #{full_file_path} #{actual_url}"}
+
   subject { Openyale::Models::Video.create(:url => vid_url) }
 
   describe "#initialize" do
@@ -61,8 +64,23 @@ describe Openyale::Models::Video do
   describe "#enqueue" do
     it "adds to queue and sets status to QUEUED" do
       Openyale::Jobs::VideoDownloadJob.expects(:create).with(:vid_id => subject.id)
+      subject.expects(:save)
       subject.enqueue
       subject.status.must_equal Openyale::Models::Video::QUEUED
     end
   end
+
+  describe "#full_file_path" do
+    it "lists the full path the the local file, given the root" do
+      subject.set_properties
+      subject.full_file_path('~/vids').must_equal full_file_path
+    end
+  end
+
+  # describe "#get_command" do
+  #   it "sets the command to be used" do
+  #     subject.set_properties
+  #     subject.get_command('~/vids').must_equal curl_command
+  #   end
+  # end
 end
