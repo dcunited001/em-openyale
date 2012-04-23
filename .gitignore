@@ -16,5 +16,9 @@ pkg/*
 Desktop DB
 Desktop DF
 
-## Spec Logging
-spec/*.log
+## Logs
+log/*
+
+## Configs
+spec/config/*.yml
+

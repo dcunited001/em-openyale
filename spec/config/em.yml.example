@@ -1,0 +1,13 @@
+---
+production:
+  vids_path: '~/openyalevids'
+  port: 8081
+  concurrent: 3
+development:
+  vids_path: '~/openyalevids'
+  port: 8081
+  concurrent: 3
+test:
+  vids_path: '~/openyalevids-test'
+  port: 8081 
+  concurrent: 3

@@ -1,0 +1,29 @@
+---
+production:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: oyc_production
+  username: user
+  password: pass
+  log_file: log/dm_production.log
+  log_level: error
+development:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: oyc_development
+  username: user
+  password: pass
+  log_file: log/dm_development.log
+  log_level: warn
+test:
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: oyc_test
+  username: user
+  password: pass
+  log_file: log/dm_test.log
+  log_level: debug
+ 
