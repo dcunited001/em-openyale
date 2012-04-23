@@ -30,6 +30,7 @@ module Openyale
       conf = read_config(env, opts)
       connect_to_db(conf.db)
       connect_to_redis(conf.redis)
+      conf
     end
 
     def read_config(env, opts = {})
@@ -43,7 +44,7 @@ module Openyale
     end
 
     def connect_to_redis(opts = {})
-      redis = Openyale::Redis.new(opts)
+      redis = Openyale::RedisConfig.new(opts)
       redis.execute
     end
 
