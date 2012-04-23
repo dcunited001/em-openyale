@@ -7,6 +7,7 @@ gem 'resque'
 gem 'resque-status'
 gem 'rake'
 gem 'activesupport'
+gem 'sinatra'
 
 gem 'datamapper'
 gem 'dm-postgres-adapter'
