@@ -1,3 +1,5 @@
+require 'resque/tasks'
+
 desc "loads up the environment"
 task :environment, :env do |t, args|
   require './setup_env'
@@ -9,6 +11,8 @@ task :environment, :env do |t, args|
 
   Openyale.setup(args[:env])
 end
+
+# task "resque:setup" => :environment
 
 task :console, [:env] => :environment do |t, args|
   require 'pry'

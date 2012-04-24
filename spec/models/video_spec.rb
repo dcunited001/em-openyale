@@ -76,11 +76,4 @@ describe Openyale::Models::Video do
       subject.full_file_path('~/vids').must_equal full_file_path
     end
   end
-
-  # describe "#get_command" do
-  #   it "sets the command to be used" do
-  #     subject.set_properties
-  #     subject.get_command('~/vids').must_equal curl_command
-  #   end
-  # end
 end

@@ -16,9 +16,6 @@ class Openyale::Models::Video
 
   property :filename, String
   property :classname, String
-
-  property :bytes_complete, Integer, :default => 0
-  property :pct_complete, Integer, :default => 0
   
   property :size, Integer
   property :pid, Integer
